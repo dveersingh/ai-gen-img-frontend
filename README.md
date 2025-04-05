@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Image Generator - Frontend (Next.js)
 
-## Getting Started
+This is the frontend for the AI Image Generator project built with **Next.js**. It interacts with a FastAPI backend to generate images from text prompts using a Hugging Face model.
 
-First, run the development server:
+---
+
+## 🛠️ Features
+
+- Modern UI built with React and Next.js
+- Sends user prompts to backend for image generation
+- Displays generated image on the same page
+- Ready for deployment on Vercel
+
+---
+
+## 📁 Project Structure
+
+```
+ai-generate-image/
+├── backend/              # FastAPI Backend (separate repo/directory)
+└── frontend/             # This Next.js frontend project
+```
+
+---
+
+## 🚀 Getting Started
+
+
+
+
+### 1. Install dependencies
+
+Make sure you have Node.js (v18 or higher) installed.
+
+```bash
+npm install
+```
+
+### 2. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🌐 Connecting to Backend
 
-## Learn More
+If you're using **hardcoded URLs**, update your `fetch` calls with the correct backend URL (e.g., in `pages/index.js`):
 
-To learn more about Next.js, take a look at the following resources:
+```js
+fetch("https://your-backend-url.com/generate-image", ...)
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Or, if using environment variables, create a `.env.local` file:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```env
+NEXT_PUBLIC_BACKEND_URL=https://your-backend-url.com
+```
 
-## Deploy on Vercel
+And access it in your code:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```js
+const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🔄 Deployment on Vercel
+
+1. Push your frontend code to GitHub
+2. Go to [vercel.com](https://vercel.com) and import the project
+3. Set root directory to `frontend/`
+4. Set `NEXT_PUBLIC_BACKEND_URL` in Vercel's Environment Variables (if used)
+5. Deploy 🚀
+
+---
+
+
+## 📄 License
+
+MIT
+
+
