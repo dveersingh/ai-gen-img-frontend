@@ -19,15 +19,15 @@ export default function Home() {
       const formData = new FormData();
       formData.append("prompt", prompt);
 
-      const res = await fetch("http://localhost:8000/generate-image", {
+      const res = await fetch("https://ai-gen-img-backend.onrender.com/generate-image", {
         method: "POST",
         body: formData,
       });
 
       const data = await res.json();
 
-      if (res.ok && data.file_path) {
-        setImageUrl(`http://localhost:8000${data.file_path}`);
+      if (res.ok && data.image_base64) {
+        setImageUrl(`data:image/png;base64,${data.image_base64}`);
       } else {
         setError(data.error || "Something went wrong.");
       }
